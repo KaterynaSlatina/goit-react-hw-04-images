@@ -19,8 +19,8 @@ export const App = () => {
     if (!inputData) {
       return;
     }
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       const { hits, total } = await fetchImage(inputData, page);
       if (total) {
         setItems(prevState => [...prevState, ...hits]);
@@ -38,16 +38,17 @@ export const App = () => {
       setInputData(newInputData);
       setPage(1);
       setItems([]);
-      getImages();
     }
   };
 
   useEffect(() => {
-    getImages();
+    if (inputData) {
+      getImages();
+    }
   }, [inputData, page, getImages]);
 
   const handleClick = () => {
-    setPage(prev => prev.page + 1, getImages);
+    setPage(prev => prev.page + 1);
   };
 
   const handleImageClick = imageUrl => {
