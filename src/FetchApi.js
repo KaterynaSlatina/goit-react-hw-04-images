@@ -11,7 +11,7 @@ axios.defaults.params = {
   per_page: 12,
 };
 
-async function fetchImage(inputData, page) {
+async function fetchImage(inputData, page = 1) {
   try {
     const url = `?q=${inputData}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`;
     const response = await axios.get(url);

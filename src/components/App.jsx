@@ -48,7 +48,7 @@ export const App = () => {
   }, [inputData, page, getImages]);
 
   const handleClick = () => {
-    setPage(prev => prev.page + 1);
+    setPage(prev => prev + 1);
   };
 
   const handleImageClick = imageUrl => {
