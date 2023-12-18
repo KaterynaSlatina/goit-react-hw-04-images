@@ -21,9 +21,9 @@ export const App = () => {
     }
     try {
       setIsLoading(true);
-      const { images, total } = await fetchImage(inputData, page);
+      const { hits, total } = await fetchImage(inputData, page);
       if (total) {
-        setItems(prevState => [...prevState, ...images]);
+        setItems(prevState => [...prevState, ...hits]);
       }
     } catch (error) {
       console.log(error);
@@ -35,7 +35,7 @@ export const App = () => {
 
   const formSubmit = newInputData => {
     if (newInputData !== inputData) {
-      setInputData(inputData);
+      setInputData(newInputData);
       setPage(1);
       setItems([]);
       getImages();
