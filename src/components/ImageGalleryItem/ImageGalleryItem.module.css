@@ -1,5 +1,5 @@
 .imageItem {
-  display: flex;
+  margin: 0;
   max-width: 100%;
   width: 330px;
   height: auto;
